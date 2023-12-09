@@ -31,6 +31,8 @@ export type SocketConfig = {
     defaultQueryTimeoutMs: number | undefined
     /** ping-pong interval for WS connection */
     keepAliveIntervalMs: number
+	/** should baileys use the mobile api instead of the multi device api */
+	mobile?: boolean
     /** proxy agent */
     agent?: Agent
     /** pino logger */
@@ -113,4 +115,7 @@ export type SocketConfig = {
     getMessage: (key: proto.IMessageKey) => Promise<proto.IMessage | undefined>
 
     makeSignalRepository: (auth: SignalAuthState) => SignalRepository
+
+    /** Socket passthrough */
+    socket?: any
 }
